@@ -5,3 +5,8 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body{
+  background-color: rgba(3, 3, 3, 0.784);
+}
+

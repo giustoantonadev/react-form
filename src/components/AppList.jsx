@@ -25,20 +25,20 @@ export default function AppList() {
 
     return (
 
-        <div className="container">
-            <div className="card text-center p-5">
-                <h1 className="text-center">Articles</h1>
+        <div className="container p-5">
+            <div className="card bg-secondary text-center p-5">
+                <h1 className="text-center text-white">Articles</h1>
                 <form onSubmit={submitArticle}>
-                    <input type='text' value={newArticle} onChange={e => setNewArticle(e.target.value)} />
-                    <button type='submit' className="btn btn-primary m-1">Add New Article</button>
+                    <input className="form-control text-center" type='text' value={newArticle} onChange={e => setNewArticle(e.target.value)} placeholder="New article here..." />
+                    <button type='submit' className="btn btn-warning m-2">Add New Article</button>
                 </form>
 
                 <ul className="list-group" >
                     {articles.map((article, index) => (
-                        <li key={index} className="list-group-item d-flex justify-content-between" >
+                        <li key={index} className="list-group-item fs-3 d-flex justify-content-between m-1 bg-primary text-warning border-0" >
                             {article}
                             <button
-                                className="badge text-bg-warning rounded-pill"
+                                className="badge text-warning text-bg-danger border-0 rounded-pill"
                                 onClick={()=> deleteArticle(index)}
                             >DELETE
                             </button>

@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+//list of articles
 const articlesList = [
     'Introduzione a React',
     'Come funziona lo stato in React',
@@ -18,6 +18,11 @@ export default function AppList() {
         setArticles([newArticle, ...articles])
     }
 
+    function deleteArticle(i){
+        const filteredArticle = articles.filter((article, index)=> index != i)
+        setArticles(filteredArticle)
+    }
+
     return (
 
         <div className="container">
@@ -27,14 +32,20 @@ export default function AppList() {
                     <input type='text' value={newArticle} onChange={e => setNewArticle(e.target.value)} />
                     <button type='submit' className="btn btn-primary m-1">Add New Article</button>
                 </form>
+
                 <ul className="list-group" >
-                    {articles.map((article,index) => (
+                    {articles.map((article, index) => (
                         <li key={index} className="list-group-item d-flex justify-content-between" >
                             {article}
-                            <button className="badge text-bg-warning rounded-pill" >DELETE</button>
+                            <button
+                                className="badge text-bg-warning rounded-pill"
+                                onClick={()=> deleteArticle(index)}
+                            >DELETE
+                            </button>
                         </li>
                     ))}
                 </ul >
+
             </div>
         </div>
     )
